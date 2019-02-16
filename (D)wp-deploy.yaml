@@ -1,0 +1,16 @@
+        apiVersion: v1
+kind: LB-Service
+metadata:
+  labels:
+    app: wp-deployment
+  name: wordpress-service
+spec:
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: wp-deployment
+  sessionAffinity: None
+  type: LoadBalancer
